@@ -22,7 +22,7 @@ this file can initialize all UART with Special Baud Rate.
 
 
 
-### Usage
+## Usage
 for use class UART you should Follow below code
 
 	UART name(Number of UART (e.g. 2) , Baud Rate (e.g. 115200) );
@@ -31,10 +31,14 @@ for use class UART you should Follow below code
 	char ch = name.getchar();
 	
 
+
 ## Developed By
 this was My Project that Write By me (ali fallah) in 13 sep 2016 (95/06/22).
+
 i hope this my work can help you... :)
+
 ForNOW...!
+
 GoodBye...!
 
   
