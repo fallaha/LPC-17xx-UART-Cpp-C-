@@ -1,8 +1,8 @@
-//----------------------------------------------------------//
-//												UART.h File 
-//							C++ UART for LPC1768 (eca rev A)
-//		Written By Ali Fallah (Kashan) at 95/06/22 (2016)
-//----------------------------------------------------------//
+//-----------------------------------------------------------------//
+//			UART.h File 
+//		C++ UART for LPC1768 (eca rev A)
+//	Written By Ali Fallah (Kashan) at 95/06/22 (2016)
+//-----------------------------------------------------------------//
 
 #ifndef _UART_H
 #define _UART_H
@@ -47,18 +47,18 @@ class UART {
 	void sendchar3 (unsigned char ch);
 	
 	void _get_dll(int baudrate){
-			CPU cpuclk;
+		CPU cpuclk;
 		_pclk=cpuclk.GetCpuClk()/DEFAULT_DIV_PCLK_UART; // Pherpheral Clock (UART) --need to change
 		_dll=_pclk/(16*baudrate);
 	}
 	
 	public:
-	UART (int8_t uart_number){
-		_uartnumber=uart_number;
-		if (_uartnumber > 3)
-			return;
+  UART (int8_t uart_number){
+	_uartnumber=uart_number;
+	if (_uartnumber > 3)
+		return;
 		
-		_get_dll(115200);
+	_get_dll(115200);
 		
 	if (_uartnumber==0)
 		uart0_init();
@@ -73,12 +73,12 @@ class UART {
 		uart3_init();
 	}
 	
-		UART (int8_t uart_number,int baudrate){
-		_uartnumber=uart_number;
-		if (_uartnumber > 3)
-			return;
+  UART (int8_t uart_number,int baudrate){
+	_uartnumber=uart_number;
+	if (_uartnumber > 3)
+		return;
 		
-		_get_dll(baudrate);
+	_get_dll(baudrate);
 		
 	if (_uartnumber==0)
 		uart0_init();
@@ -93,53 +93,48 @@ class UART {
 		uart3_init();
 	}
 
-	UART(void){
-		_uartnumber=0;
-		_get_dll(115200);
-		uart0_init();
+   UART(void){
+	_uartnumber=0;
+	_get_dll(115200);
+	uart0_init();
 	}
 	
 
 unsigned char getchar (void)  // Get Character from Uart
 {
-		if (_uartnumber==0)
-		return getchar0();
-		else if (_uartnumber==1)
-		return getchar1();
-		else if (_uartnumber==2)
-		return getchar2();
-		else if (_uartnumber==3)
-		return getchar3();
-		else 
-			return 'Q';
+	if (_uartnumber==0)
+	return getchar0();
+	else if (_uartnumber==1)
+	return getchar1();
+	else if (_uartnumber==2)
+	return getchar2();
+	else if (_uartnumber==3)
+	return getchar3();
+	else 
+		return 'Q';
 }
 
 void sendchar (unsigned char ch){
-	  if (_uartnumber==0)
-		sendchar0(ch);
-		else if (_uartnumber==1)
-		sendchar1(ch);
-		else if (_uartnumber==2)
-		sendchar2(ch);
-	  else	if (_uartnumber==3)
-		sendchar3(ch);
+	if (_uartnumber==0)
+  	  sendchar0(ch);
+	else if (_uartnumber==1)
+	  sendchar1(ch);
+	else if (_uartnumber==2)
+	  sendchar2(ch);
+	 else if (_uartnumber==3)
+	  sendchar3(ch);
 }
 
 void sendstring (char* str)
 {
-	for (int i=0;str[i]!='\0';i++)
-	{
-		sendchar(str[i]);
-	}
+  for (int i=0;str[i]!='\0';i++)
+    sendchar(str[i]);
 }
 
 };
 
 
-
-
 #endif
-
 
 
 
