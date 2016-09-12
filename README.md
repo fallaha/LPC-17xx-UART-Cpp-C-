@@ -27,7 +27,7 @@ for use class UART you should Follow below code
 
 	UART name(Number of UART (e.g. 2) , Baud Rate (e.g. 115200) );
 	name.sendchar('a');
-	name.sendstring("Salam:);
+	name.sendstring("Salam");
 	char ch = name.getchar();
 	
 
