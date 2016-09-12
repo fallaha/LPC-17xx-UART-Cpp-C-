@@ -26,9 +26,14 @@ this file can initialize all UART with Special Baud Rate.
 for use class UART you should Follow below code
 
 	UART name(Number of UART (e.g. 2) , Baud Rate (e.g. 115200) );
-	name.sendchar('a');
-	name.sendstring("Salam");
-	char ch = name.getchar();
+
+
+and for Example to Use it:
+
+	UART uart0(0 ,9600);		// initialize UART 0 and Set Baud Rate to 9600 bps
+	uart0.sendchar('a');		// send character to UART 0
+	uart0.sendstring("Salam");	// send string to UART 0
+	char ch = uart0.getchar(); 	// get character frome UART 0
 	
 
 
